@@ -8,7 +8,7 @@ var markers = []
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
 document.addEventListener('DOMContentLoaded', (event) => {
-  initMap(); // added 
+  initMap(); // added
   fetchNeighborhoods();
   fetchCuisines();
 });
@@ -77,8 +77,9 @@ initMap = () => {
         zoom: 12,
         scrollWheelZoom: false
       });
+  document.getElementById('map').setAttribute('tabindex', '-1');
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
-    mapboxToken: '<your MAPBOX API KEY HERE>',
+    mapboxToken: 'pk.eyJ1Ijoia2N0YW5nIiwiYSI6ImNqcXl6N214cDA4Y3MzeHBvdHFhNHYxbXIifQ.eeC4wUHxq5ptIaTae6z1hA',
     maxZoom: 18,
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
       '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -150,6 +151,7 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
     ul.append(createRestaurantHTML(restaurant));
   });
   addMarkersToMap();
+  UpdateTabIndex();
 }
 
 /**
@@ -161,23 +163,31 @@ createRestaurantHTML = (restaurant) => {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = restaurant.name + "restaurant's iconic picture"
   li.append(image);
 
-  const name = document.createElement('h1');
+  const name = document.createElement('h2');
   name.innerHTML = restaurant.name;
+  name.setAttribute('aria-label', 'restaurant name')
   li.append(name);
 
   const neighborhood = document.createElement('p');
   neighborhood.innerHTML = restaurant.neighborhood;
+  neighborhood.setAttribute('aria-label', 'restaurant neighborhood')
   li.append(neighborhood);
 
   const address = document.createElement('p');
   address.innerHTML = restaurant.address;
+  address.setAttribute('aria-label', 'restaurant address')
   li.append(address);
 
-  const more = document.createElement('a');
+  const more = document.createElement('button');
   more.innerHTML = 'View Details';
-  more.href = DBHelper.urlForRestaurant(restaurant);
+  more.setAttribute('aria-label', 'view restaurant details')
+  more.onclick = function() {
+    const restUrl = DBHelper.urlForRestaurant(restaurant);
+    window.location = restUrl;
+  }
   li.append(more)
 
   return li
@@ -194,10 +204,28 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     function onClick() {
       window.location.href = marker.options.url;
     }
+    marker.on("keypress", onKeypress);
+    function onKeypress() {
+      window.location.href = marker.options.url;
+    }
     self.markers.push(marker);
   });
 
-} 
+}
+
+UpdateTabIndex = () => {
+  /*const markersForTabIndex = document.getElementsByClassName('leaflet-interactive');
+  Array.from(markersForTabIndex).forEach(marker => {
+    marker.setAttribute('tabindex', '-1');
+  });
+  */
+  const LeafletControlForTabIndex = document.getElementsByClassName('leaflet-control-attribution')[0].children;
+  Array.from(LeafletControlForTabIndex).forEach(marker => {
+    marker.setAttribute('tabindex', '-1');
+  });
+}
+
+
 /* addMarkersToMap = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
     // Add marker to the map
