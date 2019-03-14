@@ -45,7 +45,7 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-
+    /*
     if (event.request.url.startsWith(self.location.origin)) {
         event.respondWith(
             caches.match(event.request)
@@ -57,8 +57,8 @@ self.addEventListener('fetch', event => {
             })
         );
     };
+    */
 
-    /*
     let cacheRequest = event.request;
     let cacheUrlObj = new URL(event.request.url);
     if (event.request.url.indexOf('restaurant.html') > -1) {
@@ -85,5 +85,4 @@ self.addEventListener('fetch', event => {
             return new Response("Application isn't connected to the internet");
         })
     )
-    */
 });
