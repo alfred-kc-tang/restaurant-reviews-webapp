@@ -16,7 +16,7 @@ For the **Restaurant Reviews** project, I incrementally converted a static webpa
 
 I have been provided the code for a restaurant reviews website. The code has a lot of issues. It’s barely usable on a desktop browser, much less a mobile device. It also doesn’t include any standard accessibility features, and it doesn’t work offline at all. My job is to update the code to resolve these issues while still maintaining the included functionality.
 
-### What do I do from here?
+### Installation
 
 1. Under the repository name, click **Clone or download**.
 2. In the Clone with HTTPs section, copy the clone URL for the repository
@@ -32,6 +32,10 @@ I have been provided the code for a restaurant reviews website. The code has a l
     * Note -  For Windows systems, Python 3.x is installed as `python` by default. To start a Python 3.x server, you can simply enter `python -m http.server 8000`.
 
 7. With your server running, visit the site: `http://localhost:8000`.
+
+**OR**
+
+1. Click on this [link](https://alfred-kctang.github.io/Udacity-FEND-Restaurant-Reviews-App-Project/) to open the live version of the page.
 
 ## Contributing
 
