@@ -39,7 +39,7 @@ I have been provided the code for a restaurant reviews website. The code has a l
 
 ## Contributing
 
-This repository is the author's code for a project of Udacity Front-end Web Developer Nanodegree.
+This repository is the author's code for a project of Udacity's Front-End Web Developer Nanodegree.
 
 ## License
 
