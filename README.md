@@ -1,4 +1,4 @@
-# [Restaurant Reviews App](https://alfred-kctang.github.io/Udacity-FEND-Restaurant-Reviews-App-Project/)
+# [Restaurant Reviews App](https://alfred-kctang.github.io/Restaurant-Reviews-App-Project/)
 
 ## Table of Contents
 
@@ -30,7 +30,7 @@ In this project, I converted a static webpage to a mobile-ready web application.
 
 **OR**
 
-1. Click on this [link](https://alfred-kctang.github.io/Udacity-FEND-Restaurant-Reviews-App-Project/) to open the live version of the page.
+1. Click on this [link](https://alfred-kctang.github.io/Restaurant-Reviews-App-Project/) to open the live version of the page.
 
 ## Contributing
 
