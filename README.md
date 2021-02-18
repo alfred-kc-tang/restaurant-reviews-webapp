@@ -1,4 +1,4 @@
-# [Restaurant Reviews App](https://alfred-kctang.github.io/Restaurant-Reviews-App-Project/)
+# [Restaurant Reviews App](https://alfred-kctang.github.io/restaurant-reviews-webapp/)
 
 ## Table of Contents
 
